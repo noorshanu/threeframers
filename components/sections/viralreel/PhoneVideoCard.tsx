@@ -36,12 +36,12 @@ export const PhoneVideoCard = ({ reel, index }: PhoneVideoCardProps) => {
 
   return (
     <motion.article
-      className="group relative mx-auto w-full max-w-[260px] sm:max-w-[280px]"
+      className="group relative mx-auto w-full max-w-[240px] sm:max-w-[260px] md:max-w-[280px]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -4 }}
     >
       <div
         className="pointer-events-none absolute -inset-3 rounded-[3rem] bg-accent/0 opacity-0 blur-2xl transition-opacity duration-500 group-hover:bg-accent/15 group-hover:opacity-100"

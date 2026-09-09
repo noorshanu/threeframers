@@ -1,3 +1,4 @@
+import { MobileStickyCta } from "@/components/layout/MobileStickyCta"
 import { SiteFooter } from "@/components/layout/SiteFooter"
 import { SiteHeader } from "@/components/layout/SiteHeader"
 import { AboutSection } from "@/components/sections/about/AboutSection"
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="pb-24 lg:pb-0">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
@@ -26,6 +27,7 @@ export default function Home() {
         <CTASection />
       </main>
       <SiteFooter />
+      <MobileStickyCta />
     </>
   )
 }

@@ -72,13 +72,13 @@ export const SiteHeader = () => {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+        className={`safe-top fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
           isScrolled
             ? "border-b border-border/60 bg-background/85 backdrop-blur-md"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-5 md:h-20 md:px-8 lg:gap-8">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-5 md:h-20 md:px-8 lg:gap-8">
           {/* Brand */}
           <Link
             href="#home"
@@ -137,7 +137,7 @@ export const SiteHeader = () => {
             <Button
               href={bookCallUrl}
               variant="cta"
-              className="hidden lg:inline-flex"
+              className="hidden min-h-[40px] px-4 py-2 text-xs sm:inline-flex sm:min-h-[44px] sm:px-5 sm:text-sm lg:inline-flex"
               ariaLabel="Book a call"
             >
               Book a Call
@@ -145,7 +145,7 @@ export const SiteHeader = () => {
 
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border-lit bg-card/60 text-text-primary backdrop-blur-sm transition-colors hover:border-glow lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border-lit bg-card/60 text-text-primary backdrop-blur-sm transition-colors hover:border-glow sm:hidden"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
               onClick={handleOpenMenu}

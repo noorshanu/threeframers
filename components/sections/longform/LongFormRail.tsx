@@ -18,7 +18,20 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)")
+
+    const handleChange = () => {
+      setIsMobile(mediaQuery.matches)
+    }
+
+    handleChange()
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [])
 
   const updateFocus = useCallback(() => {
     const container = scrollRef.current
@@ -106,7 +119,11 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
 
   return (
     <div className="relative">
-      <div className="mb-8 flex items-end justify-between gap-4">
+      <p className="mb-4 font-montserrat text-[10px] uppercase tracking-[0.2em] text-muted md:hidden">
+        Swipe the rail →
+      </p>
+
+      <div className="mb-6 flex items-end justify-between gap-4 sm:mb-8">
         <div className="min-w-0">
           <p className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-muted">
             Now projecting
@@ -132,7 +149,7 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative -mx-4 sm:mx-0">
         <div
           className="pointer-events-none absolute inset-y-8 left-1/2 z-0 w-[min(100%,320px)] -translate-x-1/2 rounded-full bg-accent/10 blur-[80px]"
           aria-hidden="true"
@@ -140,7 +157,7 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
 
         <div
           ref={scrollRef}
-          className="scrollbar-hide relative z-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6 pt-2 md:gap-6"
+          className="scroll-touch scrollbar-hide relative z-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 pt-2 sm:gap-5 sm:px-0 md:gap-6"
         >
           {reels.map((reel, index) => {
             const isActive = index === activeIndex
@@ -154,12 +171,12 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
                 }}
                 className="snap-center shrink-0 transition-transform duration-500 ease-out"
                 style={{
-                  marginTop: `${heightOffset}px`,
-                  transform: isActive ? "scale(1)" : "scale(0.94)",
+                  marginTop: isMobile ? 0 : `${heightOffset}px`,
+                  transform: isActive ? "scale(1)" : isMobile ? "scale(0.97)" : "scale(0.94)",
                 }}
               >
                 <article
-                  className={`film-reel-frame w-[220px] transition-opacity duration-500 sm:w-[250px] md:w-[280px] lg:w-[300px] ${
+                  className={`film-reel-frame w-[min(72vw,240px)] transition-opacity duration-500 sm:w-[250px] md:w-[280px] lg:w-[300px] ${
                     isActive ? "opacity-100" : "opacity-45"
                   }`}
                 >
@@ -230,7 +247,7 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
           type="button"
           onClick={() => handleScrollBy("left")}
           aria-label="Previous reel"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-body transition-colors hover:border-accent hover:text-accent"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border text-body transition-colors hover:border-accent hover:text-accent"
         >
           ←
         </button>
@@ -255,7 +272,7 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
           type="button"
           onClick={() => handleScrollBy("right")}
           aria-label="Next reel"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-white"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-white"
         >
           →
         </button>

@@ -16,7 +16,7 @@ export const Container = ({
   return (
     <Tag
       id={id}
-      className={`mx-auto w-full max-w-6xl px-6 md:px-10 ${className}`}
+      className={`mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-10 ${className}`}
     >
       {children}
     </Tag>

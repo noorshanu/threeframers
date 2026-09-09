@@ -5,15 +5,15 @@ import { bookCallUrl } from "@/lib/data/navigation"
 
 export const CTASection = () => {
   return (
-    <section id="contact" className="border-t border-border bg-background py-24 md:py-32">
+    <section id="contact" className="section-padding border-t border-border bg-background">
       <Container>
         <FadeIn>
-          <div className="grid gap-12 border border-border bg-card p-8 md:grid-cols-12 md:items-center md:gap-8 md:p-12 lg:p-16">
+          <div className="grid gap-8 border border-border bg-card p-5 sm:gap-12 sm:p-8 md:grid-cols-12 md:items-center md:gap-8 md:p-12 lg:p-16">
             <div className="md:col-span-7">
-              <p className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-muted">
+              <p className="font-montserrat text-[10px] uppercase tracking-[0.25em] text-muted sm:tracking-[0.3em]">
                 Ready to build?
               </p>
-              <h2 className="font-display mt-5 text-4xl font-bold leading-[0.95] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl">
+              <h2 className="font-display mt-4 text-[1.75rem] font-bold leading-[0.95] tracking-[-0.03em] text-white sm:mt-5 sm:text-4xl md:text-5xl lg:text-6xl">
                 Apply to work{" "}
                 <span className="font-serif-accent text-accent">with us.</span>
               </h2>

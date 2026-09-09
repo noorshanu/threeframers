@@ -8,10 +8,10 @@ export const LongFormSection = () => {
   return (
     <section
       id="longform"
-      className="relative overflow-hidden border-t border-border bg-surface py-24 md:py-32"
+      className="section-padding relative overflow-hidden border-t border-border bg-surface"
     >
       <span
-        className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none font-display text-[clamp(4rem,16vw,12rem)] font-bold leading-none tracking-tighter text-white/[0.015]"
+        className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none font-display text-[clamp(4rem,16vw,12rem)] font-bold leading-none tracking-tighter text-white/[0.015] md:block"
         aria-hidden="true"
       >
         REEL
@@ -49,8 +49,9 @@ export const LongFormSection = () => {
               ))}
             </ul>
 
-            <p className="font-mono mt-10 text-[11px] tracking-[0.2em] text-muted">
-              SCROLL THE RAIL → FOCUS PLAYS
+            <p className="font-mono mt-8 text-[11px] tracking-[0.2em] text-muted md:mt-10">
+              <span className="md:hidden">SWIPE THE RAIL → FOCUS PLAYS</span>
+              <span className="hidden md:inline">SCROLL THE RAIL → FOCUS PLAYS</span>
             </p>
           </FadeIn>
 

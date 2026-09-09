@@ -84,8 +84,8 @@ export const PortfolioGallery = () => {
 
   return (
     <div className="mt-12 md:mt-16">
-      <div className="flex flex-col gap-6 border-b border-border pb-6 lg:flex-row lg:items-end lg:justify-between">
-        <div className="scrollbar-hide flex gap-6 overflow-x-auto">
+      <div className="flex flex-col gap-4 border-b border-border pb-4 sm:gap-6 sm:pb-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="scroll-touch scrollbar-hide -mx-4 flex gap-5 overflow-x-auto px-4 pb-1 sm:mx-0 sm:gap-6 sm:px-0">
           {portfolioFilters.map((filter) => {
             const isActive = activeFilter === filter.id
             const count =
@@ -104,7 +104,7 @@ export const PortfolioGallery = () => {
                 onClick={() => handleFilterChange(filter.id)}
                 onKeyDown={(event) => handleFilterKeyDown(event, filter.id)}
                 aria-pressed={isActive}
-                className={`group shrink-0 border-b-2 pb-3 text-left transition-colors ${
+                className={`group shrink-0 border-b-2 pb-3 text-left transition-colors min-h-[44px] ${
                   isActive
                     ? "border-accent text-white"
                     : "border-transparent text-muted hover:text-white"
@@ -156,6 +156,8 @@ const PortfolioSpotlight = ({
 }: PortfolioSpotlightProps) => {
   const slideX = direction >= 0 ? 40 : -40
   const videoRef = useRef<HTMLVideoElement>(null)
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
 
   useEffect(() => {
     const video = videoRef.current
@@ -164,9 +166,34 @@ const PortfolioSpotlight = ({
     video.play().catch(() => {})
   }, [project.id])
 
+  const handleTouchStart = (event: React.TouchEvent) => {
+    touchStartX.current = event.touches[0]?.clientX ?? 0
+    touchStartY.current = event.touches[0]?.clientY ?? 0
+  }
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    const endX = event.changedTouches[0]?.clientX ?? 0
+    const endY = event.changedTouches[0]?.clientY ?? 0
+    const deltaX = touchStartX.current - endX
+    const deltaY = touchStartY.current - endY
+
+    if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return
+
+    if (deltaX > 0) {
+      onNext()
+      return
+    }
+
+    onPrev()
+  }
+
   return (
-    <article className="relative mt-8 overflow-hidden border border-border bg-card md:mt-10">
-      <div className="relative aspect-[4/5] sm:aspect-[16/11] lg:aspect-[21/9]">
+    <article
+      className="relative mt-6 overflow-hidden rounded-sm border border-border bg-card sm:mt-8 md:mt-10"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className="relative aspect-[3/4] sm:aspect-[16/11] lg:aspect-[21/9]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={project.id}
@@ -202,10 +229,10 @@ const PortfolioSpotlight = ({
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/10" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-background/80 via-transparent to-transparent sm:block" />
 
-        <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5 md:p-8">
+        <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5 md:p-8">
           <span className="font-mono text-[11px] tracking-[0.25em] text-white/70">
             PROJECT {String(index + 1).padStart(2, "0")}
           </span>
@@ -214,7 +241,7 @@ const PortfolioSpotlight = ({
           </span>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-6 p-5 md:flex-row md:items-end md:justify-between md:p-8 lg:p-10">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-4 sm:gap-6 sm:p-5 md:flex-row md:items-end md:justify-between md:p-8 lg:p-10">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.div
@@ -224,13 +251,13 @@ const PortfolioSpotlight = ({
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4, delay: 0.05 }}
               >
-                <h3 className="font-display text-3xl font-bold leading-[0.95] tracking-[-0.03em] text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                <h3 className="font-display text-xl font-bold leading-[0.95] tracking-[-0.03em] text-white sm:text-3xl md:text-5xl lg:text-6xl">
                   {project.title}
                 </h3>
-                <p className="font-montserrat mt-4 text-sm text-body md:text-base">
+                <p className="font-montserrat mt-2 text-xs text-body sm:mt-4 sm:text-sm md:text-base">
                   {project.tags}
                 </p>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul className="mt-3 flex flex-wrap gap-2 sm:mt-5">
                   {project.tagList.map((tag) => (
                     <li
                       key={tag}
@@ -249,7 +276,7 @@ const PortfolioSpotlight = ({
               type="button"
               onClick={onPrev}
               aria-label="Previous project"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/50 text-white backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 text-white backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
             >
               ←
             </button>
@@ -257,40 +284,27 @@ const PortfolioSpotlight = ({
               type="button"
               onClick={onNext}
               aria-label="Next project"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-white transition-colors hover:bg-accent-hover"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-accent bg-accent text-white transition-colors hover:bg-accent-hover"
             >
               →
             </button>
-            <Link
-              href={bookCallUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Discuss ${project.title}`}
-              className="hidden h-11 items-center justify-center rounded-full border border-white/20 px-5 font-helvetica text-sm text-white backdrop-blur-sm transition-colors hover:border-accent hover:text-accent sm:inline-flex"
-            >
-              Discuss project ↗
-            </Link>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-border px-5 py-4 md:px-8">
-        <p className="font-montserrat text-[10px] uppercase tracking-[0.25em] text-muted">
-          {total} projects in view
+      <div className="flex flex-col gap-3 border-t border-border px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5 md:px-8">
+        <p className="font-montserrat text-[10px] uppercase tracking-[0.2em] text-muted sm:tracking-[0.25em]">
+          {index + 1} of {total} · swipe or use arrows
         </p>
-        <div className="flex gap-1">
-          {Array.from({ length: total }).map((_, dotIndex) => (
-            <span
-              key={dotIndex}
-              className={`h-1 transition-all duration-300 ${
-                dotIndex === index
-                  ? "w-8 bg-accent"
-                  : "w-2 bg-border-lit"
-              }`}
-              aria-hidden="true"
-            />
-          ))}
-        </div>
+        <Link
+          href={bookCallUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Discuss ${project.title}`}
+          className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-border-lit px-5 font-helvetica text-sm text-white transition-colors hover:border-accent hover:text-accent sm:border-white/20 sm:backdrop-blur-sm"
+        >
+          Discuss project ↗
+        </Link>
       </div>
     </article>
   )

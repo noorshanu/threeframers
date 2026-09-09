@@ -10,12 +10,12 @@ import { bookCallUrl } from "@/lib/data/navigation"
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="relative flex min-h-screen flex-col">
+    <section id="home" className="relative flex min-h-[100dvh] flex-col">
       <HeroBackground />
 
-      <Container className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-28 text-center md:py-32">
+      <Container className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pb-28 pt-20 text-center sm:px-6 sm:pb-28 sm:pt-24 md:py-32">
         <motion.h1
-          className="font-display max-w-5xl text-[2.75rem] font-bold leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[5.25rem]"
+          className="font-display max-w-5xl text-[2rem] font-bold leading-[0.95] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-[5.25rem]"
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -31,7 +31,7 @@ export const HeroSection = () => {
         </motion.h1>
 
         <FadeIn delay={0.2}>
-          <p className="font-montserrat mx-auto mt-8 max-w-lg text-base leading-relaxed text-body md:text-lg">
+          <p className="font-montserrat mx-auto mt-6 max-w-md text-sm leading-relaxed text-body sm:mt-8 sm:max-w-lg sm:text-base md:text-lg">
             Content infrastructure for brands and creators who need
             consistency at a standard their audience expects.
           </p>
@@ -39,14 +39,19 @@ export const HeroSection = () => {
 
         <FadeIn
           delay={0.3}
-          className="mt-10 flex flex-wrap items-center justify-center gap-5"
+          className="mt-8 flex w-full max-w-sm flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-5"
         >
-          <Button href={bookCallUrl} variant="cta" ariaLabel="Book a call">
+          <Button
+            href={bookCallUrl}
+            variant="cta"
+            className="w-full sm:w-auto"
+            ariaLabel="Book a call"
+          >
             Book a Call
           </Button>
           <a
             href="#portfolio"
-            className="group inline-flex items-center gap-2 font-helvetica text-sm text-white transition-colors hover:text-accent"
+            className="group inline-flex min-h-[48px] w-full items-center justify-center gap-2 font-helvetica text-sm text-white transition-colors hover:text-accent sm:w-auto"
           >
             View our work
             <span

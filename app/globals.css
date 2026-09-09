@@ -32,12 +32,15 @@
 @layer base {
   html {
     scroll-behavior: auto;
+    overflow-x: clip;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
     font-family: var(--font-montserrat);
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
   }
 
   ::selection {
@@ -157,5 +160,44 @@
       var(--color-surface) 50%,
       var(--color-background) 100%
     );
+  }
+
+  .section-padding {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-top {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
   }
 }

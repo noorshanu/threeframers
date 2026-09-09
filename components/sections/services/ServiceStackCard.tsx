@@ -25,7 +25,7 @@ export const ServiceStackCard = ({ service }: ServiceStackCardProps) => {
       colors={service.glowColors}
       fillOpacity={0.45}
     >
-      <article className="relative min-h-[280px] w-full overflow-hidden md:min-h-[340px]">
+      <article className="relative w-full overflow-hidden sm:min-h-[340px]">
         {/* Mobile — top image strip with curve */}
         <div className="relative h-40 w-full overflow-hidden rounded-b-[2rem] sm:hidden">
           <Image

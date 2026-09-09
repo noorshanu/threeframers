@@ -7,39 +7,39 @@ export const ViralReelSection = () => {
   return (
     <section
       id="viral-reels"
-      className="relative overflow-hidden border-t border-border bg-background py-24 md:py-32"
+      className="section-padding relative overflow-hidden border-t border-border bg-background"
     >
       <Container>
-        <div className="max-w-3xl">
-          <FadeIn>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-6 bg-accent" aria-hidden="true" />
-              <p className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-muted">
-                Short Form
-              </p>
-            </div>
-
-            <h2 className="font-display mt-5 text-3xl font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-              Your footage, refined into edits{" "}
-              <span className="font-serif-accent text-accent">
-                built to perform.
-              </span>
-            </h2>
-
-            <p className="font-montserrat mt-6 max-w-2xl text-base leading-relaxed text-body md:text-lg">
-              The production standard behind creators who cannot afford a weak
-              hook — podcast clips, talking heads, split edits and scroll-stopping
-              cuts, formatted natively for every feed.
+        <FadeIn>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-6 bg-accent" aria-hidden="true" />
+            <p className="font-montserrat text-[10px] uppercase tracking-[0.25em] text-muted sm:tracking-[0.3em]">
+              Short Form
             </p>
-          </FadeIn>
-        </div>
+          </div>
 
-        <FadeIn delay={0.12} className="mt-14 md:mt-16">
-          <div className="scrollbar-hide -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 lg:grid-cols-4 lg:gap-8">
+          <h2 className="font-display mt-4 max-w-2xl text-[1.65rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:mt-5 sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+            Your footage, refined into edits{" "}
+            <span className="font-serif-accent text-accent">
+              built to perform.
+            </span>
+          </h2>
+
+          <p className="font-montserrat mt-4 max-w-2xl text-sm leading-relaxed text-body sm:mt-6 sm:text-base md:text-lg">
+            Podcast clips, talking heads, split edits and scroll-stopping cuts —
+            formatted natively for every feed.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.12} className="mt-10 md:mt-14">
+          <p className="mb-4 font-montserrat text-[10px] uppercase tracking-[0.2em] text-muted md:hidden">
+            Swipe to explore →
+          </p>
+          <div className="scroll-touch scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:-mx-0 sm:gap-6 sm:px-0 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4 lg:gap-8">
             {viralReels.map((reel, index) => (
               <div
                 key={reel.id}
-                className="w-[72vw] shrink-0 snap-center sm:w-[280px] md:w-auto md:shrink"
+                className="w-[78vw] max-w-[260px] shrink-0 snap-center sm:w-[260px] md:w-auto md:max-w-none md:shrink"
               >
                 <PhoneVideoCard reel={reel} index={index} />
               </div>

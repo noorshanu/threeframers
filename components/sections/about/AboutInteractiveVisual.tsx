@@ -7,11 +7,22 @@ import {
   useSpring,
 } from "framer-motion"
 import Image from "next/image"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export const AboutInteractiveVisual = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const prefersReducedMotion = useReducedMotion()
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)")
+    const handleChange = () => {
+      setIsTouchDevice(mediaQuery.matches)
+    }
+    handleChange()
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [])
 
   const rotateX = useSpring(0, { stiffness: 120, damping: 20 })
   const rotateY = useSpring(0, { stiffness: 120, damping: 20 })
@@ -20,7 +31,7 @@ export const AboutInteractiveVisual = () => {
   const glowBackground = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(74, 122, 181, 0.22) 0%, transparent 55%)`
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (prefersReducedMotion || !containerRef.current) return
+    if (prefersReducedMotion || isTouchDevice || !containerRef.current) return
 
     const rect = containerRef.current.getBoundingClientRect()
     const x = (event.clientX - rect.left) / rect.width - 0.5
@@ -42,16 +53,18 @@ export const AboutInteractiveVisual = () => {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none"
+      className="relative mx-auto w-full max-w-[280px] sm:max-w-md lg:mx-0 lg:max-w-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ perspective: 1200 }}
+      style={{ perspective: isTouchDevice ? undefined : 1200 }}
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0 z-0 rounded-2xl opacity-60"
-        style={{ background: glowBackground }}
-        aria-hidden="true"
-      />
+      {!isTouchDevice && (
+        <motion.div
+          className="pointer-events-none absolute inset-0 z-0 rounded-2xl opacity-60"
+          style={{ background: glowBackground }}
+          aria-hidden="true"
+        />
+      )}
 
       <motion.div
         className="relative z-10 will-change-transform"

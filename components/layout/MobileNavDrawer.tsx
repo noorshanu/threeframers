@@ -106,7 +106,7 @@ export const MobileNavDrawer = ({
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className={`block rounded-full px-5 py-3 font-montserrat text-sm transition-colors ${
+                    className={`flex min-h-[48px] items-center rounded-full px-5 py-3 font-montserrat text-sm transition-colors ${
                       isActive
                         ? "bg-accent font-medium text-white"
                         : "text-body hover:bg-card hover:text-white"

@@ -36,7 +36,7 @@ export const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="overflow-hidden border-t border-border bg-background py-24 md:py-32"
+      className="section-padding overflow-hidden border-t border-border bg-background"
     >
       <Container>
         <FadeIn>
@@ -50,27 +50,33 @@ export const TestimonialsSection = () => {
           />
         </FadeIn>
 
+        <p className="mt-10 font-montserrat text-[10px] uppercase tracking-[0.2em] text-muted md:hidden">
+          Swipe to read →
+        </p>
+
         <div
           ref={scrollRef}
-          className="scrollbar-hide mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4"
+          className="scroll-touch scrollbar-hide mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:mt-14 md:gap-5"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
         >
           {testimonials.map((item) => (
             <blockquote
               key={item.id}
-              className="flex w-[min(100%,340px)] shrink-0 snap-start flex-col justify-between border border-border bg-card p-8 transition-colors hover:border-accent/35 md:w-[400px]"
+              className="flex w-[min(88vw,320px)] shrink-0 snap-start flex-col justify-between border border-border bg-card p-6 transition-colors hover:border-accent/35 sm:w-[340px] md:w-[400px] md:p-8"
             >
               <span
-                className="font-serif-accent text-5xl leading-none text-accent"
+                className="font-serif-accent text-4xl leading-none text-accent md:text-5xl"
                 aria-hidden="true"
               >
                 &ldquo;
               </span>
-              <p className="font-montserrat mt-4 text-base leading-relaxed text-body">
+              <p className="font-montserrat mt-3 text-sm leading-relaxed text-body md:mt-4 md:text-base">
                 {item.quote}
               </p>
-              <footer className="mt-10 border-t border-border pt-6">
+              <footer className="mt-8 border-t border-border pt-5 md:mt-10 md:pt-6">
                 <cite className="not-italic">
                   <p className="font-display text-base font-semibold text-white">
                     {item.name}

@@ -10,9 +10,9 @@ type SplitHeadingProps = {
 }
 
 const sizeStyles = {
-  md: "text-3xl md:text-4xl lg:text-[3.25rem]",
-  lg: "text-4xl sm:text-5xl md:text-6xl lg:text-[3.75rem]",
-  hero: "text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem]",
+  md: "text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[3.25rem]",
+  lg: "text-[1.75rem] leading-[1.05] sm:text-4xl md:text-5xl lg:text-[3.75rem]",
+  hero: "text-[1.85rem] sm:text-5xl md:text-6xl lg:text-[4.5rem]",
 }
 
 export const SplitHeading = ({
@@ -31,7 +31,7 @@ export const SplitHeading = ({
     <div className={`relative ${alignClass} ${className}`.trim()}>
       {index && (
         <span
-          className="pointer-events-none absolute -top-6 right-0 select-none font-display text-7xl font-bold leading-none text-stroke-muted md:-top-10 md:text-8xl lg:text-9xl"
+          className="pointer-events-none absolute -top-4 right-0 hidden select-none font-display text-7xl font-bold leading-none text-stroke-muted sm:block md:-top-10 md:text-8xl lg:text-9xl"
           aria-hidden="true"
         >
           {index}
@@ -55,7 +55,7 @@ export const SplitHeading = ({
       </h2>
 
       {description && (
-        <p className="font-montserrat mt-6 max-w-xl text-base leading-relaxed text-body md:text-lg">
+        <p className="font-montserrat mt-4 max-w-xl text-sm leading-relaxed text-body sm:mt-6 sm:text-base md:text-lg">
           {description}
         </p>
       )}

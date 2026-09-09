@@ -11,17 +11,17 @@ export const PortfolioSection = () => {
   return (
     <section
       id="portfolio"
-      className="relative overflow-hidden border-t border-border bg-background py-24 md:py-32"
+      className="section-padding relative overflow-hidden border-t border-border bg-background"
     >
       <span
-        className="pointer-events-none absolute -right-6 top-24 select-none font-display text-[clamp(4rem,14vw,11rem)] font-bold leading-none tracking-tighter text-white/[0.02]"
+        className="pointer-events-none absolute -right-6 top-16 hidden select-none font-display text-[clamp(4rem,14vw,11rem)] font-bold leading-none tracking-tighter text-white/[0.02] sm:block md:top-24"
         aria-hidden="true"
       >
         WORK
       </span>
 
       <Container>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
           <FadeIn className="lg:col-span-8">
             <SplitHeading
               index="04"
@@ -29,13 +29,13 @@ export const PortfolioSection = () => {
               size="lg"
               white="Selected work,"
               accent="no filler."
-              description="Real projects for creators, brands and businesses — browse by category or use the arrows to explore."
+              description="Browse by category or use the arrows to explore."
             />
           </FadeIn>
 
           <FadeIn delay={0.1} className="lg:col-span-4">
-            <div className="rounded-sm border border-border bg-card p-6 lg:ml-auto lg:max-w-xs">
-              <p className="font-display text-4xl font-bold tracking-tight text-white">
+            <div className="rounded-sm border border-border bg-card p-5 sm:p-6 lg:ml-auto lg:max-w-xs">
+              <p className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 {portfolioProjects.length}
                 <span className="font-serif-accent text-accent">+</span>
               </p>
@@ -46,7 +46,7 @@ export const PortfolioSection = () => {
                 href={bookCallUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-6 inline-flex items-center gap-2 font-helvetica text-sm text-white transition-colors hover:text-accent"
+                className="group mt-5 inline-flex min-h-[44px] items-center gap-2 font-helvetica text-sm text-white transition-colors hover:text-accent sm:mt-6"
               >
                 Start a project
                 <span
@@ -62,17 +62,6 @@ export const PortfolioSection = () => {
 
         <FadeIn delay={0.15}>
           <PortfolioGallery />
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center">
-            <p className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-muted">
-              More work available on request
-            </p>
-            <p className="font-display text-sm font-semibold tracking-tight text-white">
-              THR33 <span className="font-serif-accent text-accent">Frames</span>
-            </p>
-          </div>
         </FadeIn>
       </Container>
     </section>

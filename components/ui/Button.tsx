@@ -35,14 +35,14 @@ export const Button = ({
   const isExternal = href.startsWith("http")
 
   const baseStyles =
-    "relative inline-flex items-center justify-center gap-2 rounded-full font-helvetica text-sm font-medium tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    "relative inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full font-helvetica text-sm font-medium tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-[0.98]"
 
   const sizeStyles =
     variant === "primary" || variant === "cta"
-      ? "px-7 py-3.5"
+      ? "px-7 py-3"
       : variant === "outline"
-        ? "px-5 py-2.5"
-        : "px-2 py-2"
+        ? "min-h-[44px] px-5 py-2.5"
+        : "min-h-[44px] px-2 py-2"
 
   return (
     <Link
