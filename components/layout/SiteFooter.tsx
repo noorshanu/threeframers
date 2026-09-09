@@ -2,7 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { Container } from "@/components/ui/Container"
-import { navLinks } from "@/lib/data/navigation"
+import { bookCallUrl, navLinks } from "@/lib/data/navigation"
+import { brandName } from "@/lib/data/site"
 
 export const SiteFooter = () => {
   const currentYear = new Date().getFullYear()
@@ -13,24 +14,24 @@ export const SiteFooter = () => {
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <Link
-              href="/"
+              href="#home"
               className="inline-flex items-center gap-3"
-              aria-label="Three Framers home"
+              aria-label={`${brandName} home`}
             >
               <Image
                 src="/images/logo.jpg"
-                alt="Three Framers logo"
+                alt={`${brandName} logo`}
                 width={28}
                 height={28}
                 className="h-7 w-7 object-contain"
               />
               <span className="font-helvetica text-sm font-medium text-text-primary">
-                Three Framers
+                {brandName}
               </span>
             </Link>
             <p className="font-montserrat mt-5 max-w-xs text-sm leading-relaxed text-body">
-              Video editing, YouTube automation, and social growth — built
-              around your audience.
+              The production system behind content that earns attention —
+              editing, automation, and distribution under one roof.
             </p>
           </div>
 
@@ -59,18 +60,20 @@ export const SiteFooter = () => {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="mailto:hello@threeframers.com"
-                  className="font-montserrat text-sm text-body transition-colors hover:text-text-primary"
+                  href={bookCallUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-montserrat text-sm text-accent transition-colors hover:text-accent-hover"
                 >
-                  hello@threeframers.com
+                  Book a Call →
                 </a>
               </li>
               <li>
                 <Link
                   href="#contact"
-                  className="font-montserrat text-sm text-brand-blue transition-colors hover:text-glow"
+                  className="font-montserrat text-sm text-body transition-colors hover:text-text-primary"
                 >
-                  Start a project →
+                  Apply to work with us
                 </Link>
               </li>
             </ul>
@@ -79,7 +82,7 @@ export const SiteFooter = () => {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="font-montserrat text-xs text-muted">
-            © {currentYear} Three Framers. All rights reserved.
+            © {currentYear} {brandName}. All rights reserved.
           </p>
           <p className="font-montserrat text-xs tracking-widest text-muted">
             · End ·

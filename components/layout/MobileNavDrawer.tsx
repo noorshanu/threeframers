@@ -5,7 +5,8 @@ import Link from "next/link"
 import { useEffect } from "react"
 
 import { Button } from "@/components/ui/Button"
-import { contactHref, navLinks } from "@/lib/data/navigation"
+import { bookCallUrl, navLinks } from "@/lib/data/navigation"
+import { brandName } from "@/lib/data/site"
 
 type MobileNavDrawerProps = {
   isOpen: boolean
@@ -69,7 +70,7 @@ export const MobileNavDrawer = ({
             href="#home"
             onClick={onClose}
             className="flex items-center gap-3"
-            aria-label="Three Framers home"
+            aria-label={`${brandName} home`}
           >
             <Image
               src="/images/logo.jpg"
@@ -79,7 +80,7 @@ export const MobileNavDrawer = ({
               className="h-7 w-7 object-contain"
             />
             <span className="font-helvetica text-sm font-medium text-text-primary">
-              Three Framers
+              {brandName}
             </span>
           </Link>
 
@@ -107,8 +108,8 @@ export const MobileNavDrawer = ({
                     onClick={onClose}
                     className={`block rounded-full px-5 py-3 font-montserrat text-sm transition-colors ${
                       isActive
-                        ? "bg-text-primary font-medium text-background"
-                        : "text-body hover:bg-card hover:text-text-primary"
+                        ? "bg-accent font-medium text-background"
+                        : "text-body hover:bg-card hover:text-white"
                     }`}
                   >
                     {link.label}
@@ -121,13 +122,13 @@ export const MobileNavDrawer = ({
 
         <div className="border-t border-border p-6">
           <Button
-            href={contactHref}
-            variant="primary"
+            href={bookCallUrl}
+            variant="cta"
             className="w-full"
-            ariaLabel="Contact us"
+            ariaLabel="Book a call"
             onClick={onClose}
           >
-            Contact Us
+            Book a Call
           </Button>
         </div>
       </aside>

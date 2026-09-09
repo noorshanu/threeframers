@@ -1,25 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #06070a;
-  --color-surface: #0a0b0f;
-  --color-card: #10131a;
-  --color-border: #1c2029;
-  --color-border-lit: #2c3644;
+  --color-background: #040508;
+  --color-surface: #08090d;
+  --color-card: #0c0e14;
+  --color-border: #181c24;
+  --color-border-lit: #252b36;
   --color-glow: #d1deef;
   --color-glow-hover: #acc9e8;
   --color-accent-light: #92b2d8;
   --color-brand-blue: #7d9dc4;
   --color-steel: #607da5;
-  --color-deep-blue: #2f4463;
-  --color-night-blue: #16233a;
+  --color-deep-blue: #1e2d44;
+  --color-night-blue: #111827;
+  --color-cta: #152238;
+  --color-cta-hover: #1c2d4a;
+  --color-accent: #f0c14b;
+  --color-accent-hover: #ffd666;
+  --color-accent-soft: #f0c14b22;
   --color-text-primary: #f4f7fb;
+  --color-white: #ffffff;
   --color-body: #9aa6b8;
   --color-muted: #5f6b7d;
 
   --font-display: -apple-system, "SF Pro Display", "SF Display", "Helvetica Neue", system-ui, sans-serif;
   --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-montserrat: var(--font-montserrat-family), "Montserrat", sans-serif;
+  --font-serif-accent: var(--font-serif-accent-family), "Instrument Serif", Georgia, serif;
 }
 
 @layer base {
@@ -34,7 +41,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-brand-blue) 40%, transparent);
+    background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
     color: var(--color-text-primary);
   }
 }
@@ -50,6 +57,68 @@
 
   .font-montserrat {
     font-family: var(--font-montserrat);
+  }
+
+  .font-serif-accent {
+    font-family: var(--font-serif-accent);
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 36s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .editorial-rule {
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-border-lit) 40%,
+      transparent 100%
+    );
+    height: 1px;
+  }
+
+  .text-stroke-muted {
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--color-muted) 35%, transparent);
+    color: transparent;
+  }
+
+  .film-reel-frame {
+    border-left: 1px solid var(--color-border-lit);
+    border-right: 1px solid var(--color-border-lit);
+    background: var(--color-card);
+  }
+
+  .film-sprockets {
+    height: 14px;
+    background-color: var(--color-card);
+    background-image: radial-gradient(
+      circle at center,
+      var(--color-border-lit) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 10px 10px;
+    background-position: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .film-sprockets-bottom {
+    border-bottom: none;
+    border-top: 1px solid var(--color-border);
   }
 
   .text-glow {
@@ -71,5 +140,22 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .premium-gradient {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-deep-blue) 80%, transparent) 0%,
+      color-mix(in srgb, var(--color-night-blue) 60%, transparent) 100%
+    );
+  }
+
+  .section-fade {
+    background: linear-gradient(
+      to bottom,
+      var(--color-background) 0%,
+      var(--color-surface) 50%,
+      var(--color-background) 100%
+    );
   }
 }

@@ -16,7 +16,7 @@ export const ServiceStackCard = ({ service }: ServiceStackCardProps) => {
       className="w-full"
       edgeSensitivity={28}
       glowColor={service.glowHsl}
-      backgroundColor="#10131A"
+      backgroundColor="#0c0e14"
       borderRadius={28}
       glowRadius={36}
       glowIntensity={1.1}
@@ -39,7 +39,7 @@ export const ServiceStackCard = ({ service }: ServiceStackCardProps) => {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to top, #10131A 0%, #10131A99 40%, transparent 100%)",
+                "linear-gradient(to top, #0c0e14 0%, #0c0e1499 40%, transparent 100%)",
             }}
           />
         </div>
@@ -60,7 +60,7 @@ export const ServiceStackCard = ({ service }: ServiceStackCardProps) => {
             <div
               className="absolute inset-0"
               style={{
-                background: `linear-gradient(to right, #10131A 0%, #10131Acc 20%, transparent 58%), linear-gradient(to top, #10131A88 0%, transparent 45%)`,
+                background: `linear-gradient(to right, #0c0e14 0%, #0c0e14cc 20%, transparent 58%), linear-gradient(to top, #0c0e1488 0%, transparent 45%)`,
               }}
             />
             <div

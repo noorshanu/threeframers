@@ -1,48 +1,63 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 import { Button } from "@/components/ui/Button"
 import { Container } from "@/components/ui/Container"
 import { HeroBackground } from "@/components/sections/hero/HeroBackground"
-import { HeroServicesBar } from "@/components/sections/hero/HeroServicesBar"
+import { FadeIn } from "@/components/ui/FadeIn"
+import { bookCallUrl } from "@/lib/data/navigation"
 
 export const HeroSection = () => {
   return (
     <section id="home" className="relative flex min-h-screen flex-col">
       <HeroBackground />
 
-      <Container className="relative z-10 flex flex-1 flex-col items-center justify-center pb-32 pt-32 text-center md:pt-40">
-        <p className="font-montserrat text-[11px] font-medium uppercase tracking-[0.3em] text-muted">
-          Three Framers / Creative Partner
-        </p>
+      <Container className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-28 text-center md:py-32">
+        <motion.h1
+          className="font-display max-w-5xl text-[2.75rem] font-bold leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[5.25rem]"
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="block text-white">The production</span>
+          <span className="block text-white">system behind</span>
+          <span className="block">
+            content that{" "}
+            <span className="font-serif-accent text-accent">
+              earns attention.
+            </span>
+          </span>
+        </motion.h1>
 
-        <h1 className="font-display mt-8 max-w-4xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-          Content, built to{" "}
-          <span className="text-glow text-brand-blue">move.</span>
-        </h1>
-
-        <p className="font-montserrat mt-6 max-w-lg text-base leading-relaxed text-body md:text-lg">
-          Video editing, YouTube automation and social growth — built around
-          your audience.
-        </p>
-
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-          <Button href="#contact" variant="primary" showArrow ariaLabel="Start a project">
-            Start a project
-          </Button>
-          <Button href="#services" variant="ghost" showArrow ariaLabel="View our work">
-            View our work
-          </Button>
-        </div>
-
-        <div className="mt-20 flex flex-col items-center gap-3">
-          <span className="block h-10 w-px bg-gradient-to-b from-border-lit to-transparent" />
-          <p className="font-montserrat text-[10px] uppercase tracking-[0.25em] text-muted">
-            Scroll to explore
+        <FadeIn delay={0.2}>
+          <p className="font-montserrat mx-auto mt-8 max-w-lg text-base leading-relaxed text-body md:text-lg">
+            Content infrastructure for brands and creators who need
+            consistency at a standard their audience expects.
           </p>
-        </div>
-      </Container>
+        </FadeIn>
 
-      <div className="relative z-10">
-        <HeroServicesBar />
-      </div>
+        <FadeIn
+          delay={0.3}
+          className="mt-10 flex flex-wrap items-center justify-center gap-5"
+        >
+          <Button href={bookCallUrl} variant="cta" ariaLabel="Book a call">
+            Book a Call
+          </Button>
+          <a
+            href="#portfolio"
+            className="group inline-flex items-center gap-2 font-helvetica text-sm text-white transition-colors hover:text-accent"
+          >
+            View our work
+            <span
+              className="inline-block transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            >
+              →
+            </span>
+          </a>
+        </FadeIn>
+      </Container>
     </section>
   )
 }

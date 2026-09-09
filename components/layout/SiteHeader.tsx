@@ -6,9 +6,10 @@ import { useCallback, useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/Button"
 import { MobileNavDrawer } from "@/components/layout/MobileNavDrawer"
-import { contactHref, navLinks } from "@/lib/data/navigation"
+import { bookCallUrl, navLinks } from "@/lib/data/navigation"
+import { brandName } from "@/lib/data/site"
 
-const sectionIds = ["home", "about", "services", "portfolio", "faq", "contact"]
+const sectionIds = ["home", "about", "services", "portfolio", "testimonials", "faq", "contact"]
 
 export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -82,11 +83,11 @@ export const SiteHeader = () => {
           <Link
             href="#home"
             className="flex shrink-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue"
-            aria-label="Three Framers home"
+            aria-label={`${brandName} home`}
           >
             <Image
               src="/images/logo.jpg"
-              alt="Three Framers logo"
+              alt={`${brandName} logo`}
               width={36}
               height={36}
               className="h-9 w-9 object-contain"
@@ -98,10 +99,10 @@ export const SiteHeader = () => {
             />
             <span className="hidden flex-col leading-tight sm:flex">
               <span className="font-display text-sm font-semibold text-text-primary">
-                Three
+                THR33
               </span>
               <span className="font-display text-sm font-semibold text-text-primary">
-                Framers
+                Frames
               </span>
             </span>
           </Link>
@@ -120,8 +121,8 @@ export const SiteHeader = () => {
                   href={link.href}
                   className={`rounded-full px-5 py-2 font-montserrat text-sm transition-all duration-200 ${
                     isActive
-                      ? "bg-text-primary font-medium text-background shadow-sm"
-                      : "text-body hover:text-text-primary"
+                      ? "bg-accent font-medium text-background"
+                      : "text-body hover:text-white"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -134,12 +135,12 @@ export const SiteHeader = () => {
           {/* Right: CTA + mobile toggle */}
           <div className="flex shrink-0 items-center gap-3">
             <Button
-              href={contactHref}
-              variant="primary"
+              href={bookCallUrl}
+              variant="cta"
               className="hidden lg:inline-flex"
-              ariaLabel="Contact us"
+              ariaLabel="Book a call"
             >
-              Contact Us
+              Book a Call
             </Button>
 
             <button
