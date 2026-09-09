@@ -255,7 +255,7 @@ export const LongFormRail = ({ reels }: LongFormRailProps) => {
           type="button"
           onClick={() => handleScrollBy("right")}
           aria-label="Next reel"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-background"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-white"
         >
           →
         </button>

@@ -121,7 +121,7 @@ export const SiteHeader = () => {
                   href={link.href}
                   className={`rounded-full px-5 py-2 font-montserrat text-sm transition-all duration-200 ${
                     isActive
-                      ? "bg-accent font-medium text-background"
+                      ? "bg-accent font-medium text-white"
                       : "text-body hover:text-white"
                   }`}
                   aria-current={isActive ? "page" : undefined}

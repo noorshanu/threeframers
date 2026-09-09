@@ -10,9 +10,9 @@ export const HeroBackground = () => {
     >
       <div className="pointer-events-auto absolute inset-0">
         <WebThreads
-          color1="#16233A"
-          color2="#7D9DC4"
-          color3="#D1DEEF"
+          color1="#0A1628"
+          color2="#4A7AB5"
+          color3="#6B93C4"
           speed={0.2}
           threadCount={6}
           frequency={5}

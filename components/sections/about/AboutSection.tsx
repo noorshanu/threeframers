@@ -17,7 +17,7 @@ export const AboutSection = () => {
   const cursorY = useMotionValue(0)
   const springX = useSpring(cursorX, { stiffness: 150, damping: 25 })
   const springY = useSpring(cursorY, { stiffness: 150, damping: 25 })
-  const contentGlow = useMotionTemplate`radial-gradient(280px circle at ${springX}px ${springY}px, rgba(240, 193, 75, 0.07), transparent 70%)`
+  const contentGlow = useMotionTemplate`radial-gradient(280px circle at ${springX}px ${springY}px, rgba(74, 122, 181, 0.12), transparent 70%)`
 
   const handleContentMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect()

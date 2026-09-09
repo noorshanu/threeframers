@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #040508;
-  --color-surface: #08090d;
-  --color-card: #0c0e14;
-  --color-border: #181c24;
-  --color-border-lit: #252b36;
-  --color-glow: #d1deef;
-  --color-glow-hover: #acc9e8;
-  --color-accent-light: #92b2d8;
-  --color-brand-blue: #7d9dc4;
-  --color-steel: #607da5;
-  --color-deep-blue: #1e2d44;
-  --color-night-blue: #111827;
+  --color-background: #030508;
+  --color-surface: #070b12;
+  --color-card: #0b1019;
+  --color-border: #141c2e;
+  --color-border-lit: #1c2a42;
+  --color-glow: #6b93c4;
+  --color-glow-hover: #8aaed6;
+  --color-accent-light: #6890be;
+  --color-brand-blue: #4a7ab5;
+  --color-steel: #3d5f8a;
+  --color-deep-blue: #0a1628;
+  --color-night-blue: #060a14;
   --color-cta: #152238;
-  --color-cta-hover: #1c2d4a;
-  --color-accent: #f0c14b;
-  --color-accent-hover: #ffd666;
-  --color-accent-soft: #f0c14b22;
-  --color-text-primary: #f4f7fb;
+  --color-cta-hover: #1a2d4a;
+  --color-accent: #4a7ab5;
+  --color-accent-hover: #5d8fc7;
+  --color-accent-soft: #4a7ab522;
+  --color-text-primary: #eef2f8;
   --color-white: #ffffff;
-  --color-body: #9aa6b8;
-  --color-muted: #5f6b7d;
+  --color-body: #8494ad;
+  --color-muted: #4a5870;
 
   --font-display: -apple-system, "SF Pro Display", "SF Display", "Helvetica Neue", system-ui, sans-serif;
   --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;

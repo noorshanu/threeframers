@@ -108,7 +108,7 @@ export const MobileNavDrawer = ({
                     onClick={onClose}
                     className={`block rounded-full px-5 py-3 font-montserrat text-sm transition-colors ${
                       isActive
-                        ? "bg-accent font-medium text-background"
+                        ? "bg-accent font-medium text-white"
                         : "text-body hover:bg-card hover:text-white"
                     }`}
                   >

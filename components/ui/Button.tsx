@@ -15,9 +15,9 @@ type ButtonProps = {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-white text-background hover:bg-accent hover:text-background transition-colors duration-200",
+    "bg-white text-background hover:bg-accent hover:text-white transition-colors duration-200",
   cta:
-    "bg-accent text-background hover:bg-accent-hover transition-colors duration-200",
+    "bg-accent text-white hover:bg-accent-hover transition-colors duration-200",
   ghost: "text-white hover:text-accent transition-colors duration-200",
   outline:
     "border border-border-lit text-white hover:border-accent hover:text-accent transition-colors duration-200",

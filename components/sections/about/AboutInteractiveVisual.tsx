@@ -17,7 +17,7 @@ export const AboutInteractiveVisual = () => {
   const rotateY = useSpring(0, { stiffness: 120, damping: 20 })
   const glowX = useSpring(50, { stiffness: 80, damping: 20 })
   const glowY = useSpring(50, { stiffness: 80, damping: 20 })
-  const glowBackground = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(240, 193, 75, 0.18) 0%, transparent 55%)`
+  const glowBackground = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(74, 122, 181, 0.22) 0%, transparent 55%)`
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (prefersReducedMotion || !containerRef.current) return

@@ -257,7 +257,7 @@ const PortfolioSpotlight = ({
               type="button"
               onClick={onNext}
               aria-label="Next project"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-background transition-colors hover:bg-accent-hover"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-white transition-colors hover:bg-accent-hover"
             >
               →
             </button>
