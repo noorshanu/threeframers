@@ -9,7 +9,15 @@ import { MobileNavDrawer } from "@/components/layout/MobileNavDrawer"
 import { bookCallUrl, navLinks } from "@/lib/data/navigation"
 import { brandName } from "@/lib/data/site"
 
-const sectionIds = ["home", "about", "services", "portfolio", "testimonials", "faq", "contact"]
+const sectionIds = [
+  "home",
+  "process",
+  "solutions",
+  "portfolio",
+  "testimonials",
+  "faq",
+  "contact",
+]
 
 export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -82,7 +90,7 @@ export const SiteHeader = () => {
           {/* Brand */}
           <Link
             href="#home"
-            className="flex shrink-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue"
+            className="flex shrink-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             aria-label={`${brandName} home`}
           >
             <Image
@@ -140,7 +148,7 @@ export const SiteHeader = () => {
               className="hidden min-h-[40px] px-4 py-2 text-xs sm:inline-flex sm:min-h-[44px] sm:px-5 sm:text-sm lg:inline-flex"
               ariaLabel="Book a call"
             >
-              Book a Call
+              Contact
             </Button>
 
             <button

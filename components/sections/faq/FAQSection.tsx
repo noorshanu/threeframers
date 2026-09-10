@@ -4,7 +4,6 @@ import { useState } from "react"
 
 import { Container } from "@/components/ui/Container"
 import { FadeIn } from "@/components/ui/FadeIn"
-import { SplitHeading } from "@/components/ui/SplitHeading"
 import { faqItems } from "@/lib/data/faq"
 
 type FAQAccordionItemProps = {
@@ -81,17 +80,13 @@ export const FAQSection = () => {
     <section id="faq" className="section-padding border-t border-border bg-background">
       <Container>
         <FadeIn>
-          <SplitHeading
-            index="05"
-            label="FAQ"
-            white="Straight"
-            accent="answers."
-            description="No pitch decks. No vague promises. Here's what partners usually ask before we start."
-          />
+          <h2 className="font-display text-center text-[1.75rem] font-bold text-white sm:text-4xl">
+            FAQs
+          </h2>
         </FadeIn>
 
-        <FadeIn delay={0.1} className="mt-12">
-          <div className="rounded-2xl border border-border bg-card px-4 transition-colors hover:border-accent/20 sm:px-6 md:px-10">
+        <FadeIn delay={0.1} className="mt-10 md:mt-12">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-4 transition-colors hover:border-accent/20 sm:px-6 md:px-10">
             {faqItems.map((item, index) => (
               <FAQAccordionItem
                 key={item.question}

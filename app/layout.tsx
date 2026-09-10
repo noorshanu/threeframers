@@ -6,9 +6,9 @@ import { instrumentSerif, montserrat } from "@/lib/fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "THR33 Frames — Content Production, Systematized",
+  title: "THR33 Frames — Content & Distribution System",
   description:
-    "The production system behind content that earns attention — video editing, AI content, automation and distribution.",
+    "The content and distribution system for the leaders in tech and media. Production, repurposing, and distribution under one roof.",
 }
 
 export const viewport = {

@@ -128,7 +128,7 @@ export const MobileNavDrawer = ({
             ariaLabel="Book a call"
             onClick={onClose}
           >
-            Book a Call
+            Contact
           </Button>
         </div>
       </aside>

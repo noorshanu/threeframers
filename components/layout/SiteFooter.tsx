@@ -30,8 +30,8 @@ export const SiteFooter = () => {
               </span>
             </Link>
             <p className="font-montserrat mt-5 max-w-xs text-sm leading-relaxed text-body">
-              The production system behind content that earns attention —
-              editing, automation, and distribution under one roof.
+              The content and distribution system for the leaders in tech and
+              media.
             </p>
           </div>
 

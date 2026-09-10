@@ -7,11 +7,11 @@ export type NavLink = {
 }
 
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "#home", sectionId: "home" },
-  { label: "Services", href: "#services", sectionId: "services" },
+  { label: "Process", href: "#process", sectionId: "process" },
+  { label: "Solutions", href: "#solutions", sectionId: "solutions" },
   { label: "Work", href: "#portfolio", sectionId: "portfolio" },
   { label: "Testimonials", href: "#testimonials", sectionId: "testimonials" },
-  { label: "FAQ", href: "#faq", sectionId: "faq" },
+  { label: "Contact", href: "#contact", sectionId: "contact" },
 ]
 
 export const contactHref = "#contact"

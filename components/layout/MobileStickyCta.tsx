@@ -47,7 +47,7 @@ export const MobileStickyCta = () => {
         className="w-full min-h-[48px] text-base"
         ariaLabel="Book a call"
       >
-        Book a Call
+        Book a Discovery Call
       </Button>
     </div>
   )

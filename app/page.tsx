@@ -4,12 +4,18 @@ import { SiteHeader } from "@/components/layout/SiteHeader"
 import { AboutSection } from "@/components/sections/about/AboutSection"
 import { CTASection } from "@/components/sections/cta/CTASection"
 import { FAQSection } from "@/components/sections/faq/FAQSection"
+import { GoalSection } from "@/components/sections/goal/GoalSection"
 import { HeroSection } from "@/components/sections/hero/HeroSection"
-import { PortfolioSection } from "@/components/sections/portfolio/PortfolioSection"
-import { ServicesSection } from "@/components/sections/services/ServicesSection"
 import { LongFormSection } from "@/components/sections/longform/LongFormSection"
-import { ViralReelSection } from "@/components/sections/viralreel/ViralReelSection"
+import { PortfolioSection } from "@/components/sections/portfolio/PortfolioSection"
+import { PricingSection } from "@/components/sections/pricing/PricingSection"
+import { ProblemsSection } from "@/components/sections/problems/ProblemsSection"
+import { RepurposingSection } from "@/components/sections/repurposing/RepurposingSection"
+import { SpotlightTestimonials } from "@/components/sections/spotlight/SpotlightTestimonials"
+import { TeamRolesSection } from "@/components/sections/team/TeamRolesSection"
 import { TestimonialsSection } from "@/components/sections/testimonials/TestimonialsSection"
+import { TrustedLeadersSection } from "@/components/sections/trusted/TrustedLeadersSection"
+import { ViralReelSection } from "@/components/sections/viralreel/ViralReelSection"
 
 export default function Home() {
   return (
@@ -17,11 +23,17 @@ export default function Home() {
       <SiteHeader />
       <main className="pb-24 lg:pb-0">
         <HeroSection />
+        <TrustedLeadersSection />
         <AboutSection />
-        <ServicesSection />
-        <LongFormSection />
+        <RepurposingSection />
         <ViralReelSection />
+        <LongFormSection />
         <PortfolioSection />
+        <SpotlightTestimonials />
+        <PricingSection />
+        <TeamRolesSection />
+        <ProblemsSection />
+        <GoalSection />
         <TestimonialsSection />
         <FAQSection />
         <CTASection />

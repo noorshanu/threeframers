@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #030508;
-  --color-surface: #070b12;
-  --color-card: #0b1019;
-  --color-border: #141c2e;
-  --color-border-lit: #1c2a42;
-  --color-glow: #6b93c4;
-  --color-glow-hover: #8aaed6;
-  --color-accent-light: #6890be;
-  --color-brand-blue: #4a7ab5;
-  --color-steel: #3d5f8a;
-  --color-deep-blue: #0a1628;
-  --color-night-blue: #060a14;
-  --color-cta: #152238;
-  --color-cta-hover: #1a2d4a;
-  --color-accent: #4a7ab5;
-  --color-accent-hover: #5d8fc7;
-  --color-accent-soft: #4a7ab522;
-  --color-text-primary: #eef2f8;
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-card: #111111;
+  --color-border: #1f1f1f;
+  --color-border-lit: #2a2a2a;
+  --color-glow: #d4af37;
+  --color-glow-hover: #e8c547;
+  --color-accent-light: #e0bc5c;
+  --color-brand-blue: #c9a84b;
+  --color-steel: #8a7340;
+  --color-deep-blue: #141414;
+  --color-night-blue: #0a0a0a;
+  --color-cta: #c9a84b;
+  --color-cta-hover: #dbb95a;
+  --color-accent: #c9a84b;
+  --color-accent-hover: #dbb95a;
+  --color-accent-soft: #c9a84b22;
+  --color-text-primary: #f5f5f5;
   --color-white: #ffffff;
-  --color-body: #8494ad;
-  --color-muted: #4a5870;
+  --color-body: #a3a3a3;
+  --color-muted: #737373;
 
   --font-display: -apple-system, "SF Pro Display", "SF Display", "Helvetica Neue", system-ui, sans-serif;
   --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -78,7 +78,7 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 36s linear infinite;
+    animation: marquee 32s linear infinite;
   }
 
   .marquee-track:hover {
@@ -127,7 +127,7 @@
   .text-glow {
     text-shadow:
       0 0 40px color-mix(in srgb, var(--color-glow) 60%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-brand-blue) 30%, transparent);
+      0 0 80px color-mix(in srgb, var(--color-accent) 30%, transparent);
   }
 
   .grain-overlay {
@@ -199,5 +199,18 @@
   .scroll-touch {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
+  }
+
+  .mmh-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    border-radius: 1rem;
+  }
+
+  .mmh-frame {
+    border: 1px solid var(--color-border-lit);
+    background: var(--color-surface);
+    border-radius: 0.75rem;
+    overflow: hidden;
   }
 }

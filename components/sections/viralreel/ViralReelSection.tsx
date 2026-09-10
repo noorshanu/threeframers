@@ -6,28 +6,18 @@ import { viralReels } from "@/lib/data/viralreel"
 export const ViralReelSection = () => {
   return (
     <section
-      id="viral-reels"
+      id="short-form"
       className="section-padding relative overflow-hidden border-t border-border bg-background"
     >
       <Container>
         <FadeIn>
-          <div className="flex items-center gap-3">
-            <span className="h-px w-6 bg-accent" aria-hidden="true" />
-            <p className="font-montserrat text-[10px] uppercase tracking-[0.25em] text-muted sm:tracking-[0.3em]">
-              Short Form
-            </p>
-          </div>
-
-          <h2 className="font-display mt-4 max-w-2xl text-[1.65rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:mt-5 sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-            Your footage, refined into edits{" "}
-            <span className="font-serif-accent text-accent">
-              built to perform.
-            </span>
+          <h2 className="font-display max-w-3xl text-[1.75rem] font-bold leading-tight text-white sm:text-4xl md:text-5xl">
+            Your footage into world class edits that{" "}
+            <span className="font-serif-accent text-accent">go viral</span>
           </h2>
-
           <p className="font-montserrat mt-4 max-w-2xl text-sm leading-relaxed text-body sm:mt-6 sm:text-base md:text-lg">
-            Podcast clips, talking heads, split edits and scroll-stopping cuts —
-            formatted natively for every feed.
+            The unparalleled production standard behind the biggest names in
+            media. Podcasts. Shows. Long form. We got it all.
           </p>
         </FadeIn>
 

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 
 import { Container } from "@/components/ui/Container"
 import { FadeIn } from "@/components/ui/FadeIn"
-import { SplitHeading } from "@/components/ui/SplitHeading"
 import { testimonials } from "@/lib/data/testimonials"
 
 export const TestimonialsSection = () => {
@@ -40,14 +39,12 @@ export const TestimonialsSection = () => {
     >
       <Container>
         <FadeIn>
-          <SplitHeading
-            index="04"
-            label="Testimonials"
-            size="lg"
-            white="Trusted by creators"
-            accent="& brands."
-            description="Hear from partners who run their content on our production systems."
-          />
+          <h2 className="font-display text-[1.75rem] font-bold text-white sm:text-4xl md:text-5xl">
+            Client Testimonials
+          </h2>
+          <p className="font-montserrat mt-3 text-sm text-body sm:text-base">
+            Hear from their experience
+          </p>
         </FadeIn>
 
         <p className="mt-10 font-montserrat text-[10px] uppercase tracking-[0.2em] text-muted md:hidden">
@@ -81,9 +78,11 @@ export const TestimonialsSection = () => {
                   <p className="font-display text-base font-semibold text-white">
                     {item.name}
                   </p>
-                  <p className="font-montserrat mt-1 text-xs uppercase tracking-[0.15em] text-muted">
-                    {item.role}
-                  </p>
+                  {item.role && (
+                    <p className="font-montserrat mt-1 text-xs uppercase tracking-[0.15em] text-muted">
+                      {item.role}
+                    </p>
+                  )}
                 </cite>
               </footer>
             </blockquote>
